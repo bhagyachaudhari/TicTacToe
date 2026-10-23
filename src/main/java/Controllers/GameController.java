@@ -1,0 +1,34 @@
+package Controllers;
+
+import Exceptions.BotCountExceedsLimitException;
+import Exceptions.DuplicateSymbolException;
+import Exceptions.PlayersCountDimensionMismatchException;
+import Models.Game;
+import Models.Player;
+import Strategies.WinningStrategy;
+
+import java.util.List;
+
+public class GameController {
+    public Game startGame(Integer dimension, List<Player> players, List<WinningStrategy> winningStrategyList) throws PlayersCountDimensionMismatchException, BotCountExceedsLimitException, DuplicateSymbolException {
+        System.out.println("The game of TicTacToe begins!");
+            return Game.getBuilder()
+                    .setDimension(dimension)
+                    .setPlayers(players)
+                    .setWinningStrategyList(winningStrategyList)
+                    .build();
+
+    }
+
+    public void makeMove(Game game){
+        game.makeMove();
+    }
+
+    public void printBoard(Game game){
+        game.printBoard();
+    }
+
+    public void undo(Game game){
+//        game.undo();
+    }
+}
